@@ -41,7 +41,7 @@ The blocking queue has high contention on head and tail. Only one thread can per
 on this implementation, However, the benchmark contradicts my expectation. 1) The implementation could be wrong. 2) Because it is total queue,
 methods exit immediately when condition fail.  
 In non-blocking queue, because the second CAS(), it put all add() operations in busy waiting, and remove() is depended on add()'s completion. Atomic operations
-take more time to finish. This may be the reason that blocking queue outperforms non-blocking in benchmark.
+take more time to finish. This may be the reason that non-blocking queue does not outperform blocking in benchmark.
 
 #### Difficulties
   * To build a non-blocking queue, essentially we need to assign content and move index and perform these two operations in
@@ -53,7 +53,7 @@ one atomic step. This is not possible for DAS.
 
 ### Benchmark
 Measure execution time for 1 thread to 32 threads.<br>
-For each thread, it performs total **10000** operations and capacity of queue is set to **5000**.<br>
+For each thread, it performs total **50000** operations and capacity of queue is set to **10000**.<br>
 All tests are performed in Ubuntu VM environment.<br>
 Three different profile
   * 20% add(), 80% remove()

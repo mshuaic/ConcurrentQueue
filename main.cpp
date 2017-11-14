@@ -11,11 +11,11 @@
 #include "BLOCKING_QUEUE.h"
 #include "NONBLOCKING_QUEUE.h"
 #include "TestBuilder.h"
-#define MAX_NUM_OP 10000
-#define CAPACITY 5000
+#define MAX_NUM_OP 50000
+#define CAPACITY 10000
 #define MAX_NUM_THREAD 32
 #define TOTAL_NUM_RUNS 5
-#define ADD_OP_PERCENT 20
+#define ADD_OP_PERCENT 80
 #define TOTAL_PERCENTAGE 100
 
 using namespace std;
@@ -174,6 +174,6 @@ int main()
 	}
 	fclose(pFile);
 	printf("done\n");
-	getchar();
+	//getchar();
 	return 0;
 }
